@@ -1106,3 +1106,19 @@ var items = [{
   "has_variations": false,
   "used_manufacturer": false
 }]
+
+/* Question 1 */
+
+var add = function(firstArgument, secondArgument) {
+  return (firstArgument + secondArgument);
+}
+
+var itemPrice = items.map(function(item) {
+  return item.price;
+});
+
+var sum = itemPrice.reduce(add, 0);
+
+var average = (sum / items.length);
+
+console.log("The average price is $" + Math.round(average));
