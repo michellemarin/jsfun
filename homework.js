@@ -1121,4 +1121,53 @@ var sum = itemPrice.reduce(add, 0);
 
 var average = (sum / items.length);
 
-console.log("The average price is $" + Math.round(average));
+var newAverage = average.toFixed(2);
+
+console.log("The average price is $" + newAverage);
+
+/* Question 2 */
+
+var itemSearch = items.filter(function(items) {
+  return items.price > 14 &&
+         items.price < 18;
+});
+
+var itemNames = itemSearch.map(function(itemSearch) {
+  return {title: itemSearch.title};
+});
+
+console.log("Items that cost between $14.00 USD and $18.00 USD" , itemNames);
+
+/* Question 3 */
+
+var itemGbp = items.filter(function(items) {
+  return items.currency_code === "GBP";
+});
+
+var GbpName = itemGbp.map(function(itemGbp) {
+  return itemGbp.title;
+});
+
+var GbpPrice = itemGbp.map(function(itemGbp) {
+  return itemGbp.price;
+});
+
+console.log(GbpName + " costs $" + GbpPrice);
+
+/* Question 4 */
+
+var findWood = items.filter(function(item) {
+    var itemMaterials = item.materials.filter(function(material) {
+       return material === 'wood';
+  });
+  return itemMaterials.length > 0 &&
+         itemMaterials.length < 2;
+});
+
+var woodTitle = findWood.map(function(findWood) {
+  return findWood.title + (" - is made of wood.");
+});
+
+console.log(woodTitle);
+
+/* Question 5 */
