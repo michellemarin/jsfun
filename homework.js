@@ -1111,7 +1111,7 @@ var items = [{
 
 var add = function(firstArgument, secondArgument) {
   return (firstArgument + secondArgument);
-}
+};
 
 var itemPrice = items.map(function(item) {
   return item.price;
@@ -1158,7 +1158,6 @@ var GbpPrice = itemGbp.map(function(itemGbp) {
 
 console.log("Question #3:");
 console.log(GbpName + " costs $" + GbpPrice);
-console.log('')
 
 /* Question 4 */
 
@@ -1174,31 +1173,16 @@ var woodTitle = findWood.map(function(findWood) {
   return findWood.title + (" - is made of wood.");
 });
 
-var woodResults = woodTitle.toString();
+console.log("\n" + "Question #4:");
 
-var split = woodResults.split('.,')
-
-var first = split[0];
-var second = split[1];
-var third = split[2];
-var fourth = split[3];
-var fifth = split[4];
-
-console.log("Question #4:");
-console.log(first)
-console.log(second)
-console.log(third)
-console.log(fourth)
-console.log(fifth)
-console.log('')
+woodTitle.forEach(function(item) {
+  console.log(item);
+});
 
 /* Question 5 */
 
 var eightOrMore = items.filter(function(item) {
-    var itemMaterials = item.materials.filter(function(material) {
-       return material;
-  });
-  return itemMaterials.length > 7;
+  return item.materials.length > 7;
 });
 
 var eightTitle = eightOrMore.map(function(eightOrMore) {
@@ -1209,84 +1193,18 @@ var eightMaterials = eightOrMore.map(function(eightOrMore) {
   return eightOrMore.materials;
 });
 
-var titleOne = eightTitle[0];
-
-var titleTwo = eightTitle[1];
-
-var materialOne = eightMaterials[0];
-
-var materialTwo = eightMaterials[1];
-
-var printTitleOne = titleOne.toString();
-
-var printTitleTwo = titleTwo.toString();
-
-var printMaterialOne = materialOne.toString();
-
-var printMaterialTwo = materialTwo.toString();
-
-var splitOne = printMaterialOne.split(',')
-
-var firstOne = splitOne[0];
-var secondOne = splitOne[1];
-var thirdOne = splitOne[2];
-var fourthOne = splitOne[3];
-var fifthOne = splitOne[4];
-var sixthOne = splitOne[5];
-var seventhOne = splitOne[6];
-var eightOne = splitOne[7];
-var ninthOne = splitOne[8];
-
-
-var splitTwo = printMaterialTwo.split(',')
-
-var firstTwo = splitTwo[0];
-var secondTwo = splitTwo[1];
-var thirdTwo = splitTwo[2];
-var fourthTwo = splitTwo[3];
-var fifthTwo = splitTwo[4];
-var sixthTwo = splitTwo[5];
-var seventhTwo = splitTwo[6];
-var eighthTwo = splitTwo[7];
-var ninthTwo = splitTwo[8];
-var tenthTwo = splitTwo[9];
-var eleventhTwo = splitTwo[10];
-var tweflthTwo = splitTwo[11];
-var thirteenthTwo = splitTwo[12];
-
-console.log("Question #5:");
-console.log(printTitleOne);
-console.log(firstOne);
-console.log(secondOne);
-console.log(thirdOne);
-console.log(fourthOne);
-console.log(fifthOne);
-console.log(sixthOne);
-console.log(seventhOne);
-console.log(eightOne);
-console.log(ninthOne);
-console.log('');
-console.log(printTitleTwo);
-console.log(firstTwo);
-console.log(secondTwo);
-console.log(thirdTwo);
-console.log(fourthTwo);
-console.log(fifthTwo);
-console.log(sixthTwo);
-console.log(seventhTwo);
-console.log(eighthTwo);
-console.log(ninthTwo);
-console.log(tenthTwo);
-console.log(eleventhTwo);
-console.log(tweflthTwo);
-console.log(thirteenthTwo);
-
+eightOrMore.forEach(function(item) {
+  console.log(item.title + "has " + item.materials.length + " materials: ");
+  item.materials.forEach(function(material) {
+    console.log(material);
+  });
+  console.log("");
+});
 
 /* Question */
 
 var sellerMade = items.filter(function(items) {
-  return items.who_made === 'i_did' &&
-         items.who_made != 'someone_else';
+  return items.who_made === 'i_did';
 });
 
 console.log('');
