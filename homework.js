@@ -1113,9 +1113,7 @@ var add = function(firstArgument, secondArgument) {
   return (firstArgument + secondArgument);
 };
 
-var itemPrice = items.map(function(item) {
-  return item.price;
-});
+var itemPrice = _.pluck(items, 'price');
 
 var sum = itemPrice.reduce(add, 0);
 
@@ -1129,7 +1127,7 @@ console.log('')
 
 /* Question 2 */
 
-var itemSearch = items.filter(function(items) {
+var itemSearch = _.filter(items, function(items) {
   return items.price > 14 &&
          items.price < 18;
 });
@@ -1144,7 +1142,7 @@ console.log('')
 
 /* Question 3 */
 
-var itemGbp = items.filter(function(items) {
+var itemGbp = _.filter(items, function(items) {
   return items.currency_code === "GBP";
 });
 
