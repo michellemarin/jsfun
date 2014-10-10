@@ -1148,11 +1148,11 @@ var itemGbp = _.filter(items, function(items) {
 
 var GbpName = itemGbp.map(function(itemGbp) {
   return itemGbp.title;
-});
+});  // This is a good use of the _.pluck() method.
 
 var GbpPrice = itemGbp.map(function(itemGbp) {
   return itemGbp.price;
-});
+});  // This is a good use of the _.pluck() method.
 
 console.log("Question #3:");
 console.log(GbpName + " costs $" + GbpPrice);
@@ -1161,7 +1161,7 @@ console.log(GbpName + " costs $" + GbpPrice);
 
 var findWood = items.filter(function(item) {
     var itemMaterials = item.materials.filter(function(material) {
-       return material === 'wood';
+       return material === 'wood'; // This whole function can be made much much simplier with the use of backbone's contains method. http://underscorejs.org/#contains
   });
   return itemMaterials.length > 0 &&
          itemMaterials.length < 2;
@@ -1185,13 +1185,13 @@ var eightOrMore = items.filter(function(item) {
 
 var eightTitle = eightOrMore.map(function(eightOrMore) {
     return eightOrMore.title;
-  });
+  }); // Another good use of pluck
 
 var eightMaterials = eightOrMore.map(function(eightOrMore) {
   return eightOrMore.materials;
-});
+  }); // Another good use of pluck
 
-eightOrMore.forEach(function(item) {
+eightOrMore.forEach(function(item) { // why no _.eac() here?
   console.log(item.title + "has " + item.materials.length + " materials: ");
   item.materials.forEach(function(material) {
     console.log(material);
